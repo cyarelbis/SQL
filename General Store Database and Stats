@@ -1,0 +1,37 @@
+-- Create a store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, aisle INTEGER, category TEXT);
+INSERT INTO store VALUES (1, "apple", 2, 1, "food");
+INSERT INTO store VALUES (2, "lillies",3, 4, "plant");
+INSERT INTO store VALUES (3, "tv", 50, 5, "appliances");
+INSERT INTO store VALUES (4, "banana", 1, 1, "food");
+INSERT INTO store VALUES (5, "strawberry", 4, 1, "food");
+INSERT INTO store VALUES (6, "roses", 3, 4, "plant");
+INSERT INTO store VALUES (7, "blender", 25, 5, "appliances");
+INSERT INTO store VALUES (8, "blueberries", 3, 1, "food");
+INSERT INTO store VALUES (9, "tulips", 5, 4, "plant");
+INSERT INTO store VALUES (10, "toaster", 15, 5, "appliances");
+INSERT INTO store VALUES (11, "cherry", 2, 1, "food");
+INSERT INTO store VALUES (12, "sunflower", 2, 4, "plant");
+INSERT INTO store VALUES (13, "airfrier", 45, 5, "appliances");
+INSERT INTO store VALUES (14, "peach", 2, 1, "food");
+INSERT INTO store VALUES (15, "cataleya", 5, 4, "plant");
+
+--display all data from store ordered by least to most expensive
+SELECT * FROM store ORDER BY price DESC;
+
+--what is the average price of a plant?
+SELECT AVG(price) FROM store WHERE category = "plant";
+
+--what is located on aisle 5?
+SELECT name FROM store WHERE aisle =5;
+
+--what items are $15 or less, in order of price ascending
+SELECT name FROM store WHERE price <- 15 ORDER BY price;
+
+--what is the item quantity of each category?
+SELECT category,COUNT(*) FROM store GROUP BY category;
+
+--what items are $50? 
+SELECT * FROM store WHERE price = 50
+
